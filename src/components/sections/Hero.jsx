@@ -104,7 +104,7 @@ const Hero = () => {
                     {/* Image Container */}
                     <div className="relative rounded-2xl overflow-hidden">
                       <img
-                        src="/developer-portrait.png"
+                        src="./developer-portrait.png"
                         alt="Sushruta Behera"
                         className="w-full h-auto object-contain rounded-2xl"
                       />
