@@ -54,6 +54,22 @@ const Projects = () => {
         }
     };
 
+    const handleScroll = () => {
+        if (!scrollContainerRef.current) return;
+
+        const container = scrollContainerRef.current;
+        const scrollPosition = container.scrollLeft;
+        const cardWidth = container.scrollWidth / filteredProjects.length;
+
+        // Calculate closest index based on how far we've scrolled
+        const index = Math.round(scrollPosition / cardWidth);
+        const clampedIndex = Math.min(Math.max(0, index), maxIndex);
+
+        if (clampedIndex !== currentIndex) {
+            setCurrentIndex(clampedIndex);
+        }
+    };
+
     const nextSlide = () => scrollToIndex(currentIndex + 1);
     const prevSlide = () => scrollToIndex(currentIndex - 1);
 
@@ -115,6 +131,7 @@ const Projects = () => {
                     <div className="relative">
                         <div
                             ref={scrollContainerRef}
+                            onScroll={handleScroll}
                             className="overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
                         >
                             <div className="flex gap-6 pb-4">
