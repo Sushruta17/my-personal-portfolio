@@ -3,7 +3,7 @@ import { Code, Menu, Terminal, X } from 'lucide-react';
 import { NAV_LINKS, PERSONAL_INFO } from '../../utils/constants';
 import { useScrollSpy, scrollToSection } from '../../hooks/useScrollSpy';
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, onToggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const activeSection = useScrollSpy(NAV_LINKS.map(link => link.id))
@@ -37,9 +37,11 @@ const Navbar = () => {
               <Terminal className='w-5 h-5 text-white' />
             </div> */}
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className='text-xl font-bold gradient-text hover:opacity-80 transition-opacity'
-              aria-label="home"
+              onClick={() => {
+                onToggleTheme?.();
+              }}
+              className='text-xl font-bold gradient-text hover:opacity-80 transition-opacity cursor-pointer'
+              aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {PERSONAL_INFO.name.split(' ')[0]}
             </button>

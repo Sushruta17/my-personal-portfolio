@@ -8,6 +8,7 @@ import {
     MessageSquare
 } from 'lucide-react';
 import LeetCodeIcon from '../../ui/LeetCodeIcon.jsx';
+import FloatingInput from '../../ui/FloatingInput.jsx';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants';
 import FadeIn from '../animations/FadeIn';
 import RadialGradientBackground from '../backgrounds/RadialGradientBackground';
@@ -77,51 +78,34 @@ const Contacts = () => {
                     {/* Contact Form */}
                     <FadeIn delay={100}>
                         <div className='glass rounded-2xl p-8 shadow-lg'>
-                            <form onSubmit={handleSubmit} className='space-y-6'>
-                                <div>
-                                    <label htmlFor="name" className='block text-sm font-medium text-slate-700 mb-2'>
-                                        Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name='name'
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className='w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-300'
-                                        placeholder='Your Name'
-                                    />
-                                </div>
+                            <form onSubmit={handleSubmit} className='contact-form'>
+                                <FloatingInput
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    label="Name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
 
-                                <div>
-                                    <label htmlFor="email" className='block text-sm font-medium text-slate-700 mb-2'>
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        placeholder='your.email@example.com'
-                                        className='w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-300'
-                                    />
-                                </div>
+                                <FloatingInput
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    label="Email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
 
-                                <div>
-                                    <label htmlFor="message" className='block text-sm font-medium text-slate-700 mb-2'>
-                                        Message
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        id="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        rows={5}
-                                        placeholder='Tell me about your project or opportunity...'
-                                        className='w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-300 resize-none'
-                                    />
-                                </div>
+                                <FloatingInput
+                                    id="message"
+                                    name="message"
+                                    label="Message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    multiline
+                                    rows={5}
+                                />
 
                                 <button
                                     type='submit'
@@ -202,7 +186,7 @@ const Contacts = () => {
                                                 href={url}
                                                 target='_blank'
                                                 rel="noopener noreferrer"
-                                                className='p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-primary/30 hover:scale-110 transition-all duration-300 group'
+                                                className='p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-primary/30 hover:scale-110 transition-all duration-300 group social-btn'
                                             >
                                                 <Icon className="w-6 h-6 text-slate-500 group-hover:text-primary transition-colors" />
                                             </a>

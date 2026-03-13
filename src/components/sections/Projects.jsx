@@ -112,9 +112,9 @@ const Projects = () => {
                                     : 'text-slate-600 hover:text-primary'
                                     }`}
                             >
-                                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${activeCategory === category
+                                <div className={`absolute inset-0 rounded-full transition-all duration-300 project-category-bg ${activeCategory === category
                                     ? 'bg-gradient-to-r from-primary to-secondary'
-                                    : 'bg-slate-100 group-hover:bg-primary/10'
+                                    : 'project-category-bg--inactive bg-slate-100 group-hover:bg-primary/10'
                                     }`} />
 
                                 <div className='relative flex items-center gap-2'>
@@ -152,7 +152,7 @@ const Projects = () => {
                                 <button
                                     onClick={prevSlide}
                                     disabled={currentIndex === 0}
-                                    className='flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-lg border border-slate-200 rounded-full hover:border-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10'
+                                    className='flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-lg border border-slate-200 rounded-full hover:border-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 project-nav-arrow'
                                     aria-label='Previous Projects'
                                 >
                                     <ChevronLeft className='w-5 h-5 text-slate-600' />
@@ -161,7 +161,7 @@ const Projects = () => {
                                 <button
                                     onClick={nextSlide}
                                     disabled={currentIndex >= maxIndex}
-                                    className='flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-lg border border-slate-200 rounded-full hover:border-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10'
+                                    className='flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white shadow-lg border border-slate-200 rounded-full hover:border-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 project-nav-arrow'
                                     aria-label='Next Projects'
                                 >
                                     <ChevronRight className='w-5 h-5 text-slate-600' />

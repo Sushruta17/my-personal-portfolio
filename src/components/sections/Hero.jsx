@@ -5,7 +5,7 @@ import { scrollToSection } from "../../hooks/useScrollSpy";
 import FadeIn from "../animations/FadeIn";
 import RadialGradientBackground from '../backgrounds/RadialGradientBackground';
 
-const Hero = () => {
+const Hero = ({ isDarkMode, onToggleTheme }) => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-50 via-blue-50/50 to-violet-50/40">
       <RadialGradientBackground variant="hero" />
@@ -22,7 +22,7 @@ const Hero = () => {
             <FadeIn delay={0}>
               <div className="inline-flex items-center gap-2.5 px-5 py-2.5 mb-8 glass rounded-full shadow-sm">
                 <Briefcase className="w-4 h-4 text-primary" />
-                <span className="text-sm text-slate-700 font-medium">
+                <span className="text-sm text-slate-700 font-medium hero-tagline">
                   {PERSONAL_INFO.title}
                 </span>
               </div>
@@ -31,12 +31,19 @@ const Hero = () => {
             <FadeIn delay={100}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 mb-4 leading-tight">
                 Hi, I'm{' '}
-                <span className="gradient-text">{PERSONAL_INFO.name}</span>
+                <button
+                  type="button"
+                  onClick={() => onToggleTheme?.()}
+                  className="gradient-text cursor-pointer hover:opacity-90 focus:outline-none"
+                  aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                  {PERSONAL_INFO.name}
+                </button>
               </h1>
             </FadeIn>
 
             <FadeIn delay={150}>
-              <h2 className="text-2xl md:text-3xl font-medium text-slate-600 mb-6">
+              <h2 className="text-2xl md:text-3xl font-medium text-slate-600 mb-6 hero-role">
                 Full-Stack Developer
               </h2>
             </FadeIn>
@@ -61,7 +68,7 @@ const Hero = () => {
                 </button>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="inline-flex items-center gap-2 bg-white text-slate-700 rounded-full px-8 py-3.5 text-base font-medium border border-slate-200 hover:border-primary/30 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
+                  className="view-projects-btn inline-flex items-center gap-2 bg-white text-slate-700 rounded-full px-8 py-3.5 text-base font-medium border border-slate-200 hover:border-primary/30 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
                 >
                   View Projects
                 </button>
@@ -91,25 +98,55 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image with tilt hover */}
           <div>
             <FadeIn delay={200}>
               <div className="relative">
-                <div className="relative max-w-[450px] ml-auto group">
-                  {/* Background Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 rounded-3xl blur-2xl scale-110 group-hover:scale-115 transition-transform duration-500" />
+                <div className="relative max-w-[450px] mx-auto lg:ml-auto tilt-container">
+                  <div className="tilt-canvas">
+                    <div className="tilt-tracker tr-1" />
+                    <div className="tilt-tracker tr-2" />
+                    <div className="tilt-tracker tr-3" />
+                    <div className="tilt-tracker tr-4" />
+                    <div className="tilt-tracker tr-5" />
+                    <div className="tilt-tracker tr-6" />
+                    <div className="tilt-tracker tr-7" />
+                    <div className="tilt-tracker tr-8" />
+                    <div className="tilt-tracker tr-9" />
+                    <div className="tilt-tracker tr-10" />
+                    <div className="tilt-tracker tr-11" />
+                    <div className="tilt-tracker tr-12" />
+                    <div className="tilt-tracker tr-13" />
+                    <div className="tilt-tracker tr-14" />
+                    <div className="tilt-tracker tr-15" />
+                    <div className="tilt-tracker tr-16" />
+                    <div className="tilt-tracker tr-17" />
+                    <div className="tilt-tracker tr-18" />
+                    <div className="tilt-tracker tr-19" />
+                    <div className="tilt-tracker tr-20" />
+                    <div className="tilt-tracker tr-21" />
+                    <div className="tilt-tracker tr-22" />
+                    <div className="tilt-tracker tr-23" />
+                    <div className="tilt-tracker tr-24" />
+                    <div className="tilt-tracker tr-25" />
 
-                  {/* Background Card */}
-                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-3 shadow-xl border border-white/60 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
-                    {/* Image Container */}
-                    <div className="relative rounded-2xl overflow-hidden">
-                      <img
-                        src="./developer-portrait.png"
-                        alt="Sushruta Behera"
-                        className="w-full h-auto object-contain rounded-2xl"
-                      />
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent" />
+                    <div className="tilt-card">
+                      {/* Background Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 rounded-3xl blur-2xl scale-110 transition-transform duration-500" />
+
+                      {/* Background Card */}
+                      <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-3 shadow-xl border border-white/60 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+                        {/* Image Container */}
+                        <div className="relative rounded-2xl overflow-hidden">
+                          <img
+                            src="./developer-portrait.png"
+                            alt="Sushruta Behera"
+                            className="w-full h-auto object-contain rounded-2xl"
+                          />
+                          {/* Overlay gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent" />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -42,7 +42,7 @@ const Experience = () => {
                                 <FadeIn key={exp.id} delay={200 + index * 100}>
                                     <div className={`glass rounded-2xl p-6 hover:shadow-lg transition-all duration-300 card-3d ${exp.current ? 'ring-2 ring-primary/20' : ''}`}>
                                         <div className="flex items-start gap-4">
-                                            <div className={`p-3 rounded-xl ${exp.current ? 'bg-gradient-to-br from-primary to-secondary' : 'bg-slate-100'}`}>
+                                            <div className={`p-3 rounded-xl ${exp.current ? 'bg-gradient-to-br from-primary to-secondary' : 'bg-slate-100 exp-icon-bg--inactive'}`}>
                                                 <Briefcase className={`w-5 h-5 ${exp.current ? 'text-white' : 'text-slate-600'}`} />
                                             </div>
                                             <div className="flex-1">

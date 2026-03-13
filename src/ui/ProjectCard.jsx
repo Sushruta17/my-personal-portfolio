@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
   const visibleTechs = showAllTechs ? technologies : technologies.slice(0, 4);
 
   return (
-    <div className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300 card-3d">
+    <div className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300 card-3d project-card-surface">
       {/* Image Section */}
       <div className="relative h-56 overflow-hidden">
         <img
@@ -54,12 +54,12 @@ const ProjectCard = ({ project }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-6 space-y-4">
+        <div className="p-6 space-y-4">
         <div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-primary transition-colors duration-300 project-card-title project-title-hover">
             {title}
           </h3>
-          <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">
+          <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 project-card-description">
             {description}
           </p>
         </div>
@@ -69,7 +69,7 @@ const ProjectCard = ({ project }) => {
           {visibleTechs.map((tech, index) => (
             <span
               key={index}
-              className='px-3 py-1 text-xs font-medium text-primary bg-primary/5 border border-primary/10 rounded-lg'
+              className='px-3 py-1 text-xs font-medium text-primary bg-primary/5 border border-primary/10 rounded-lg project-tech-pill'
             >
               {tech}
             </span>
@@ -77,7 +77,7 @@ const ProjectCard = ({ project }) => {
           {technologies.length > 4 && (
             <button
               onClick={() => setShowAllTechs(!showAllTechs)}
-              className='px-3 py-1 text-xs font-medium text-primary bg-primary/10 border border-primary/20 rounded-lg cursor-pointer hover:bg-primary/20 transition-colors duration-200'
+              className='px-3 py-1 text-xs font-medium text-primary bg-primary/10 border border-primary/20 rounded-lg cursor-pointer hover:bg-primary/20 transition-colors duration-200 project-tech-toggle'
             >
               {showAllTechs ? 'Show less' : `+${technologies.length - 4} more`}
             </button>
